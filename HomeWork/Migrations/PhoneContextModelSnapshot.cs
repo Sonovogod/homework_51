@@ -50,6 +50,10 @@ namespace HomeWork.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Manufacture")
                         .IsRequired()
                         .HasColumnType("TEXT");

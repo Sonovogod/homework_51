@@ -1,0 +1,51 @@
+@model List<Phone>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h2>Список телефонов</h2>
+</div>
+<a asp-action="" class="my-3 btn btn-outline-info">Добавить телефон</a>
+<div class="table_section">
+    @{
+        if (!Model.Any())
+        {
+            <h2>Список телефонов пуст</h2>
+        }
+        else
+        {
+            <table class="table" style="width: 100%;">
+                <tr>
+                    <th>#Id</th>
+                    <th>Производитель</th>
+                    <th>Модель</th>
+                    <th>Цена</th>
+                    <th>Действие</th>
+                </tr>
+                @foreach (var phone in Model)
+                {
+                    <tr>
+                        <td>@phone.Id</td>
+                        <td>@phone.Manufacture</td>
+                        <td>@phone.Title</td>
+                        <td>@phone.Coast</td>
+                        <td>
+                            <a asp-controller=""
+                               asp-action=""
+                               asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Подробнее</a>
+                            <a asp-controller=""
+                               asp-action=""
+                               asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Заказать</a>
+                            <a asp-controller=""
+                               asp-action=""
+                               asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Изменить</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</div>

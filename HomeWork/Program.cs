@@ -1,4 +1,5 @@
 using HomeWork.Service;
+using HomeWork.Service.Abstract;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PhoneContext>(options => options.UseSqlite(connection));
+builder.Services.AddScoped<IPhoneService, PhoneService>();
 
 var app = builder.Build();
 
@@ -27,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=PhoneController}/{action=Index}/{id?}");
 
 app.Run();
