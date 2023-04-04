@@ -7,4 +7,6 @@ public class PhoneContext : DbContext
 {
     public DbSet<Phone> Phone { get; set; }
     public DbSet<Order> Order { get; set; }
+
+    public PhoneContext(DbContextOptions<PhoneContext> options) : base(options){}
 }
