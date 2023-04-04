@@ -17,4 +17,10 @@ public class PhoneService : IPhoneService
         List<Phone> phones = _db.Phone.ToList();
         return phones;
     }
+
+    public Phone GetPhone(int id)
+    {
+        var phones = GetAll();
+        return phones.FirstOrDefault(x => x.Id == id);
+    }
 }

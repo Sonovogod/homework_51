@@ -1,0 +1,40 @@
+@model List<Order>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h2>Список заказов</h2>
+</div>
+<div class="table_section">
+    @{
+        if (!Model.Any())
+        {
+            <h2>Список заказов пуст</h2>
+        }
+        else
+        {
+            <table class="table" style="width: 100%;">
+                <tr>
+                    <th>#Id</th>
+                    <th>Имя покупателя</th>
+                    <th>Номер телефона</th>
+                    <th>Наименование устройства</th>
+                    <th>Сумма</th>
+                </tr>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.Name</td>
+                        <td>@order.PhoneNumber</td>
+                        <td>@order.Phone.Manufacture @order.Phone.Title</td>
+                        <td>@order.Phone.Coast</td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</div>
