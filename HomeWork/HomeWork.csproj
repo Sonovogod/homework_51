@@ -15,4 +15,8 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.15" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Specs" />
+    </ItemGroup>
+
 </Project>

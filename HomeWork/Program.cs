@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PhoneContext>(options => options.UseSqlite(connection));
 builder.Services.AddScoped<IPhoneService, PhoneService>();
+builder.Services.AddScoped<CreatePhoneValidator>();
+builder.Services.AddScoped<IDownloadFileService, DownloadFileService>();
 
 var app = builder.Build();
 
