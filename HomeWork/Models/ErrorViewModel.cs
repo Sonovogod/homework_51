@@ -1,8 +1,9 @@
+using FluentValidation.Results;
+
 namespace HomeWork.Models;
 
 public class ErrorViewModel
 {
-    public string? RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    public List<ValidationFailure> Errors { get; set; }
+    
 }
