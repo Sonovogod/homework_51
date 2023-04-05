@@ -27,16 +27,17 @@
             </div>
             <div class="form-group mb-3">
                 <label for="weight" class="mb-2">Описание</label>
-                <input asp-for="Phone.Description"
+                <textarea  asp-for="Phone.Description"
                        type="text"
                        class="form-control"
                        id="weight"
                        placeholder="ну конечно не 'топ за свои деньги' как сясёми, за то нет рекламы в проводнике...">
+                </textarea>
             </div>
             <div class="form-group mb-3">
                 <label for="price" class="mb-2">Цена</label>
                 <input asp-for="Phone.Coast"
-                       type="date"
+                       type="text"
                        class="form-control"
                        id="price"
                        placeholder="10000000000000$">

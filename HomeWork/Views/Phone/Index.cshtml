@@ -8,7 +8,7 @@
 <div class="text-center">
     <h2>Список телефонов</h2>
 </div>
-<a asp-action="" class="my-3 btn btn-outline-info">Добавить телефон</a>
+<a asp-action="Create" class="my-3 btn btn-outline-info">Добавить телефон</a>
 <div class="table_section">
     @{
         if (!Model.Any())
@@ -33,15 +33,15 @@
                         <td>@phone.Title</td>
                         <td>@phone.Coast</td>
                         <td>
-                            <a asp-controller=""
-                               asp-action=""
+                            <a asp-controller="Phone"
+                               asp-action="About"
                                asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Подробнее</a>
                             <a asp-controller="Order"
                                asp-action="Create"
-                               asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Заказать</a>
+                               asp-route-id="@phone.Id" class="my-3 btn btn-success d-inline">Заказать</a>
                             <a asp-controller=""
                                asp-action=""
-                               asp-route-id="@phone.Id" class="my-3 btn btn-outline-info d-inline">Изменить</a>
+                               asp-route-id="@phone.Id" class="my-3 btn btn-danger d-inline">Изменить</a>
                         </td>
                     </tr>
                 }

@@ -17,9 +17,11 @@
             <li class="list-group-item">Стоимость: @Model.Coast</li>
         </ul>
         <div class="card-body">
-            <a asp-route-id="@Model.Id" asp-controller="Order" asp-action="Create" class="my-3 btn btn-outline-success">Сделать заказ</a>
-            <a asp-route-phone="@Model" asp-controller="File" asp-action="GetFile" class="my-3 btn btn-outline-success">Скачать тех. спецификации</a>
-            <a asp-route-manufacture="@Model.Manufacture" asp-controller="Phone" asp-action="OfficialSite" class="my-3 btn btn-outline-success">На сайт производителя</a>
+            <a asp-route-id="@Model.Id" asp-controller="Order" asp-action="Create" class="my-3 btn btn-success">Сделать заказ</a>
+            <a asp-route-id="@Model.Id" 
+               asp-controller="File" 
+               asp-action="GetFile" class="my-3 btn btn-dark">Скачать тех. спецификации</a>
+            <a asp-route-manufacture="@Model.Manufacture" asp-controller="Phone" asp-action="OfficialSite" class="my-3 btn btn-info">На сайт производителя</a>
         </div>
     </div>
 </div>

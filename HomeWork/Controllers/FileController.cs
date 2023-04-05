@@ -12,10 +12,10 @@ public class FileController : Controller
     {
         _downloadFileService = downloadFileService;
     }
-
-    public IActionResult GetFile(Phone phone)
+    
+    public IActionResult GetFile(int id)
     {
-        var file = _downloadFileService.Download(phone);
+        var file = _downloadFileService.Download(id);
 
         if (string.IsNullOrEmpty(file.FileName))
             return NotFound();
