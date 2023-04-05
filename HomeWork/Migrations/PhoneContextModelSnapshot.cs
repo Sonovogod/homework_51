@@ -46,9 +46,8 @@ namespace HomeWork.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Coast")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<double>("Coast")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Description")
                         .IsRequired()

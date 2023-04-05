@@ -6,5 +6,5 @@ public class Phone
     public string Manufacture { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    public string Coast { get; set; }
+    public double Coast { get; set; }
 }

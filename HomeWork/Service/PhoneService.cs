@@ -23,4 +23,10 @@ public class PhoneService : IPhoneService
         var phones = GetAll();
         return phones.FirstOrDefault(x => x.Id == id);
     }
+
+    public void Add(Phone phone)
+    {
+        _db.Phone.Add(phone);
+        _db.SaveChanges();
+    }
 }

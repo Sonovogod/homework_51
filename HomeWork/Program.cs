@@ -1,5 +1,7 @@
+using HomeWork.Models;
 using HomeWork.Service;
 using HomeWork.Service.Abstract;
+using HomeWork.Validation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,7 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<PhoneContext>(options => options.UseSqlite(connection));
 builder.Services.AddScoped<IPhoneService, PhoneService>();
 builder.Services.AddScoped<CreatePhoneValidator>();
+builder.Services.AddScoped<CreatePhone>();
 builder.Services.AddScoped<IDownloadFileService, DownloadFileService>();
 
 var app = builder.Build();

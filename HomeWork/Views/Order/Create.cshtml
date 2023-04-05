@@ -26,10 +26,14 @@
                    id="phone"
                    placeholder="+ 7 777 777 77 77">
         </div>
-        <input asp-for="Id" value="@Model.Id" class="d-none">
-        <input asp-for="Phone" value="@Model.Phone" class="d-none">
-        
-        
+        <div class="form-group mb-3">
+                    <label for="device" class="mb-2">Выбран телефон</label>
+                    <input type="text"
+                           class="form-control"
+                           id="device"
+                           value="@Model.Phone.Title">
+        </div>
+        <input type="hidden" asp-for="Id" value="@Model.Id">
         <button type="submit" class="btn btn-outline-info mt-3">Заказать</button>
     </form>
 </div>
