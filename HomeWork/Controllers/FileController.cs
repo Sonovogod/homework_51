@@ -1,3 +1,4 @@
+using HomeWork.Models;
 using HomeWork.Service.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +13,9 @@ public class FileController : Controller
         _downloadFileService = downloadFileService;
     }
 
-    public IActionResult GetFile(string fileName)
+    public IActionResult GetFile(Phone phone)
     {
-        var file = _downloadFileService.Download(fileName);
+        var file = _downloadFileService.Download(phone);
 
         if (string.IsNullOrEmpty(file.FileName))
             return NotFound();

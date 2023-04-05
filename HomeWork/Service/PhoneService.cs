@@ -29,4 +29,10 @@ public class PhoneService : IPhoneService
         _db.Phone.Add(phone);
         _db.SaveChanges();
     }
+
+    public Phone GetById(int id)
+    {
+        var phone = _db.Phone.FirstOrDefault(x => x.Id == id);
+        return phone;
+    }
 }

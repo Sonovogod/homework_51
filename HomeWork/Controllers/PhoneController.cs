@@ -49,4 +49,17 @@ public class PhoneController : Controller
 
         return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public IActionResult About(int id)
+    {
+       Phone phone = _phoneService.GetById(id);
+       return View(phone);
+    }
+    
+    [HttpGet]
+    public IActionResult OfficialSite(string manufacture)
+    {
+        return Redirect($@"https:\\{manufacture}.com");
+    }
 }

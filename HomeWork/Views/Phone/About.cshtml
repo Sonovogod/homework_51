@@ -1,0 +1,25 @@
+@model Phone
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <h2>Все что Вы хотели знать о @Model.Title</h2>
+    <div class="card px-0" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Производитель: @Model.Manufacture</li>
+            <li class="list-group-item">Стоимость: @Model.Coast</li>
+        </ul>
+        <div class="card-body">
+            <a asp-route-id="@Model.Id" asp-controller="Order" asp-action="Create" class="my-3 btn btn-outline-success">Сделать заказ</a>
+            <a asp-route-phone="@Model" asp-controller="File" asp-action="GetFile" class="my-3 btn btn-outline-success">Скачать тех. спецификации</a>
+            <a asp-route-manufacture="@Model.Manufacture" asp-controller="Phone" asp-action="OfficialSite" class="my-3 btn btn-outline-success">На сайт производителя</a>
+        </div>
+    </div>
+</div>
