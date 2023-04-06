@@ -35,4 +35,10 @@ public class PhoneService : IPhoneService
         var phone = _db.Phone.FirstOrDefault(x => x.Id == id);
         return phone;
     }
+
+    public void EditPhone(Phone phone)
+    {
+        _db.Update(phone);
+        _db.SaveChanges();
+    }
 }

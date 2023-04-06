@@ -14,6 +14,7 @@ builder.Services.AddScoped<IPhoneService, PhoneService>();
 builder.Services.AddScoped<CreatePhoneValidator>();
 builder.Services.AddScoped<CreatePhone>();
 builder.Services.AddScoped<IDownloadFileService, DownloadFileService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 

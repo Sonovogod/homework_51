@@ -62,4 +62,28 @@ public class PhoneController : Controller
     {
         return Redirect($@"https:\\{manufacture}.com");
     }
+
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        Phone phone = _phoneService.GetById(id);
+        _createPhone.Phone = phone;
+        return View(_createPhone);
+    }
+    
+    [HttpPost]
+    public IActionResult Edit(Phone phone)
+    {
+        ValidationResult validator = _createPhoneValidator.Validate(phone);
+
+        if (validator.IsValid)
+            _phoneService.EditPhone(phone);
+        else
+        {
+            _createPhone.ErrorViewModel.Errors = validator.Errors;
+            _createPhone.Phone = phone;
+            return View(_createPhone);
+        }
+        return RedirectToAction("Index");
+    }
 }

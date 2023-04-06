@@ -8,18 +8,16 @@ namespace HomeWork.Controllers;
 
 public class OrderController : Controller
 {
-    private readonly IPhoneService _phoneService;
-    private readonly PhoneContext _db;
+    private readonly IOrderService _orderService;
 
-    public OrderController(IPhoneService phoneService, PhoneContext db)
+    public OrderController(IOrderService orderService)
     {
-        _phoneService = phoneService;
-        _db = db;
+        _orderService = orderService;
     }
     [HttpGet]
     public IActionResult Create(int id)
     {
-        var phone = _phoneService.GetPhone(id);
+        var phone = _orderService.GetPhoneById(id);
 
         if (string.IsNullOrEmpty(phone.Title))
             return NotFound();
@@ -33,16 +31,13 @@ public class OrderController : Controller
     [HttpPost]
     public IActionResult Create(Order order)
     {
-        _db.Order.Add(order);
-        _db.SaveChanges();
+        _orderService.Add(order);
         return RedirectToAction("Orders");
     }
 
     public IActionResult Orders()
     {
-        var orders = _db.Order
-            .Include(x => x.Phone)
-            .ToList();
+        var orders = _orderService.GetAll();
         return View(orders);
     }
 }

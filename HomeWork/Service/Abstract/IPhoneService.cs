@@ -8,4 +8,5 @@ public interface IPhoneService
     public Phone GetPhone(int id);
     public void Add(Phone phone);
     Phone GetById(int id);
+    void EditPhone(Phone phone);
 }
