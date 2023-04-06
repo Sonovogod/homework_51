@@ -12,7 +12,9 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<PhoneContext>(options => options.UseSqlite(connection));
 builder.Services.AddScoped<IPhoneService, PhoneService>();
 builder.Services.AddScoped<CreatePhoneValidator>();
+builder.Services.AddScoped<CreateOrderValidation>();
 builder.Services.AddScoped<CreatePhone>();
+builder.Services.AddScoped<CreateOrder>();
 builder.Services.AddScoped<IDownloadFileService, DownloadFileService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 

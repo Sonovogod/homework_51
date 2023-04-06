@@ -1,4 +1,4 @@
-@model Order
+@model CreateOrder
 
 @{
     ViewBag.Title = "title";
@@ -12,7 +12,7 @@
     <form asp-action="Create" asp-controller="Order" method="post">
         <div class="form-group mb-3">
             <label for="Name" class="mb-2">Имя покупателя</label>
-            <input asp-for="Name"
+            <input asp-for="Order.Name"
                    type="text"
                    class="form-control"
                    id="Name"
@@ -20,21 +20,32 @@
         </div>
         <div class="form-group mb-3">
             <label for="phone" class="mb-2">Номер телефона</label>
-            <input asp-for="PhoneNumber"
+            <input asp-for="Order.PhoneNumber"
                    type="text"
                    class="form-control"
                    id="phone"
                    placeholder="+ 7 777 777 77 77">
         </div>
         <div class="form-group mb-3">
-                    <label for="device" class="mb-2">Выбран телефон</label>
-                    <input disabled type="text"
-                           class="form-control"
-                           id="device"
-                           value="@Model.Phone.Title">
+            <label for="device" class="mb-2">Выбран телефон</label>
+            <input disabled type="text"
+                   class="form-control"
+                   id="device"
+                   value="@Model.Order.Phone.Title">
         </div>
-        <input type="hidden" asp-for="PhoneId" value="@Model.Phone.Id">
+        <input type="hidden" asp-for="Order.PhoneId" value="@Model.Order.Phone.Id">
         <button type="submit" class="btn btn-outline-info mt-3">Заказать</button>
     </form>
+    @{
+            if (Model.ErrorViewModel.Errors.Any())
+               {
+                   foreach (var error in Model.ErrorViewModel.Errors)
+                   {
+                        <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+                            @error.ErrorMessage
+                        </p>
+                   }
+               }
+        }
 </div>
 </div>
